@@ -1,0 +1,11 @@
+{
+  "org": "tiangolo",
+  "repo": "pr-push",
+  "versions": [
+    {
+      "commit": "f336b3817f32ea9b8273a8c15f8ecb739ac38167",
+      "tag": "0.0.4",
+      "parsed_at": "2026-10-10T04:29:54.969272+00:00"
+    }
+  ]
+}

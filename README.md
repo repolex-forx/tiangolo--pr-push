@@ -1,1 +1,114 @@
-Initializing
+# Repolex Knowledge Graph of tiangolo/pr-push
+
+RDF knowledge graph data for [tiangolo/pr-push](https://github.com/tiangolo/pr-push), parsed by [repolex](https://repolex.ai).
+
+> **Note**: This data is experimental and subject to change without notice.
+
+## How to use this data
+
+The easiest way to get started is to install the [rlex](https://github.com/repolex-ai/rlex) query tool:
+
+```bash
+cargo install --git https://github.com/repolex-ai/rlex
+```
+
+Verify the install:
+
+```bash
+rlex --help
+```
+
+**rlex is designed to be used primarily by LLMs in a terminal.** Start up your favorite AI assistant and ask it to use rlex. It handles the SPARQL — you just ask questions in plain English.
+
+To load this repo's data:
+
+```bash
+rlex download tiangolo/pr-push
+```
+
+Consult `rlex --help` for other options, including SPARQL queries, HTTP server, and interactive visualization.
+
+## Data structure
+
+All data is stored as gzip-compressed [N-Quads](https://www.w3.org/TR/n-quads/) (`.nq.gz`), a standard RDF format that can be loaded into any triplestore or graph database.
+
+```
+.
+├── aggregate
+│   ├── ast
+│   │   └── f336b3817f32ea9b8273a8c15f8ecb739ac38167
+│   │       └── chunk-001.nq.gz
+│   └── repolex
+│       └── f336b3817f32ea9b8273a8c15f8ecb739ac38167
+│           └── chunk-001.nq.gz
+├── blob
+│   ├── 11f29d2247da8b21a709315adfb6d0402d695e6d.nq.gz
+│   ├── 14bc2d3df73b4bab7c8f3946b7c084aefb20e1c8.nq.gz
+│   ├── 289d8a8b3e49a2ee6034b5111101d7227338e55f.nq.gz
+│   ├── 3f5d6702769174144de84316b58e629c00029bdc.nq.gz
+│   ├── 4540eb967698f1648ac6eac44770ebffb6443b26.nq.gz
+│   ├── 465c64a06fa6e4cc4abb7521f559d99e24993267.nq.gz
+│   ├── 469c1494fafb52d2086c7eb00c9b6b414f4960ba.nq.gz
+│   ├── 4a6fee5525834061437e07672e3bb817d2333485.nq.gz
+│   ├── 4e8ce8015d6864f86658ece9a8d62c2439e6701a.nq.gz
+│   ├── 5473b12c4a15ac44ca89b187e6b49ae32236abd9.nq.gz
+│   ├── 573a510b88f4425686a28a7f26ea0eb452fcf979.nq.gz
+│   ├── 5ac876c3b6fff64d3499b5eeb69c0b15c625832b.nq.gz
+│   ├── 5f2bc01f8447e1927a8e653bc2b6937bb40e2fd6.nq.gz
+│   ├── 6324d401a069f4020efcf0ff07442724b52f47c2.nq.gz
+│   ├── 6b4936afad6ba95234d8023ddd1fb40c94dbd4b1.nq.gz
+│   ├── 7a67dc7a92b29807a91a0070422bc8a2acfbcf54.nq.gz
+│   ├── 7aea8b77090513534e55fdd468941c14fcd276dc.nq.gz
+│   ├── 85e2343a41195b82944fe23d01f8245d2a4d1bad.nq.gz
+│   ├── 886b07d3c7308b9717d293844444f32ff620aff2.nq.gz
+│   ├── 8b137891791fe96927ad78e64b0aad7bded08bdc.nq.gz
+│   ├── 8dc006060a91211097221b51302dfa60d1fee337.nq.gz
+│   ├── 8eb087d4bc0d3497718a2d16f33d41f522959a9f.nq.gz
+│   ├── 909cb905e4cd1d278894fff6692661d1ed2c77e0.nq.gz
+│   ├── 9a3615dde623fc365fc82c238e7a7fe314e6b855.nq.gz
+│   ├── 9ff208c406c6ce4e0538b030d96c1ba53cc64ca5.nq.gz
+│   ├── a228765490b8363b48d4b8ebdcd48a6de0d7e094.nq.gz
+│   ├── ab691199d2e4f6fb95883a26c9406c4a58d7e564.nq.gz
+│   ├── b8b44119a4fb246d5f310ea991c64cf1da1a35f3.nq.gz
+│   ├── beaa06dc7da436267f745c55731f311da376355b.nq.gz
+│   ├── bed2b3d5a2c9deda3c5827fea17383394f72aa36.nq.gz
+│   ├── c03cca90b698696ba18bcf31c5f83d079a1a6eb3.nq.gz
+│   ├── ca3c2467dde78e00839895c22386b4392f8fcd5a.nq.gz
+│   ├── d22d082b8a663a44272c79d01bdf74d998f1e5f1.nq.gz
+│   ├── da0598597c0424c3ad023e62e6342f5f67328140.nq.gz
+│   ├── eedf1d857bc46fcaffed65c03892a0811a4a5077.nq.gz
+│   ├── f2141316995ba98ca943cc8602a9d49f13f1bc68.nq.gz
+│   └── faa3b9758665846739576fe66e9852669a8073ae.nq.gz
+├── branch
+│   └── branch.nq.gz
+├── commit
+│   └── commit.nq.gz
+├── filetree
+│   └── f336b3817f32ea9b8273a8c15f8ecb739ac38167.nq.gz
+├── pr
+│   └── pr.nq.gz
+└── tag
+    └── tag.nq.gz
+
+12 directories, 44 files
+```
+
+| Directory | What it contains |
+|-----------|-----------------|
+| `blob/` | Per-file AST graphs, content-addressed by git blob SHA. Each file in the source repo gets its own graph. |
+| `aggregate/ast/` | Combined AST graph per parsed commit. Merges all blob graphs for a snapshot of the entire codebase at that point. |
+| `aggregate/lsp/` | Language Server Protocol enrichment: resolved symbols, definitions, references, and type information. |
+| `aggregate/dataflow/` | Interprocedural data flow edges between functions and modules. |
+| `aggregate/repolex/` | Combined graph (AST + LSP + dataflow) per commit. |
+| `commit/` | Git commit metadata (author, date, message, parent links). |
+| `branch/` | Branch metadata. |
+| `tag/` | Tag metadata. |
+| `filetree/` | File tree snapshots per commit (which files existed and their blob SHAs). |
+| `audit/` | Code architecture and graph audit reports per commit. |
+
+## Source repository
+
+[tiangolo/pr-push](https://github.com/tiangolo/pr-push)
+
+---
+*Parsed on 2026-10-10 by [repolex](https://repolex.ai)*
