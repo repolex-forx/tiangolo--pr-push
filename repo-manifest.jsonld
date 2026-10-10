@@ -8,7 +8,7 @@
     {
       "@id": "https://repolex.ai/r/tiangolo/pr-push/commit/f336b3817f32ea9b8273a8c15f8ecb739ac38167",
       "git:hexsha": "f336b3817f32ea9b8273a8c15f8ecb739ac38167",
-      "repolex:parseStatus": "metadata_complete",
+      "repolex:parseStatus": "ast_complete",
       "git:tagName": "0.0.4"
     },
     {
